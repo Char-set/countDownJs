@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../dist/count-down.js"></script>
+    <script>
+        console.log(countDownJs,'______')
+        let {Countdown, CountdownEventName, fillZero} = countDownJs;
+        const countdown = new Countdown(Date.now() + 75 * 60 * 1000, 100);
+        countdown.on(CountdownEventName.RUNNING, (remainTimeData) => {
+            const { hours, minutes, seconds, count} = remainTimeData;
+            console.log([hours, minutes, seconds, count].map(fillZero).join(':'));
+        }); 
+    </script>
+</body>
+</html>
